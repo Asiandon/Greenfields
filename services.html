@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFields Agric - Services</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Page-specific animations + layout enhancements */
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .service-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform .3s ease, box-shadow .3s ease;
+            animation: fadeInUp 0.7s ease both;
+        }
+
+        .service-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+
+        .service-box img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Our Agric Services</h1>
+    <p>Delivering the best in modern agriculture</p>
+</header>
+
+<!-- NAVBAR -->
+<div class="topnav" id="myTopnav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="products.html">Products</a>
+  <a href="contact.html">Contact</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<section>
+    <h2>What We Offer</h2>
+
+    <div class="service-container">
+
+        <!-- SERVICE 1 -->
+        <div class="service-box">
+            <img src="https://i.pinimg.com/1200x/d2/31/3b/d2313bf47264e5aad16515bc9070ef32.jpg" alt="Farm Mechanization">
+            <h3>Farm Mechanization</h3>
+            <p>We provide modern machinery including tractors, ploughs, harvesters and advanced irrigation systems.</p>
+        </div>
+
+        <!-- SERVICE 2 -->
+        <div class="service-box">
+            <img src="https://i.pinimg.com/1200x/3f/6c/f0/3f6cf0b2a86a27532f00e670c8a7f1f9.jpg" alt="Seed Supply">
+            <h3>High-Quality Seed Supply</h3>
+            <p>Access improved hybrid seeds that guarantee faster germination and high yield for all crop types.</p>
+        </div>
+
+        <!-- SERVICE 3 -->
+        <div class="service-box">
+            <img src="https://i.pinimg.com/736x/5f/f0/e0/5ff0e06bb3b7304a5b24edf93caab6f4.jpg" alt="Farmer Training">
+            <h3>Farmer Training</h3>
+            <p>We train individuals and cooperatives in modern farming best practices and smart agriculture technologies.</p>
+        </div>
+
+        <!-- SERVICE 4 -->
+        <div class="service-box">
+            <img src="https://i.pinimg.com/1200x/76/32/7d/76327d3b6c8bee75a6f294816575b1b0.jpg" alt="Fertilizer Distribution">
+            <h3>Fertilizer Distribution</h3>
+            <p>We distribute organic and inorganic fertilizers suitable for various soil types and climates.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2025 GreenFields Agric</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
