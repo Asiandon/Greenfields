@@ -6,113 +6,253 @@
     <title>GreenFields Agric - Services</title>
     <link rel="stylesheet" href="style.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Page-specific animations + layout enhancements */
+        /* General Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fdfa;
+        }
+
+        /* Navigation */
+        .topnav {
+            background-color: #2c3e50;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .topnav a:hover { background-color: #27ae60; color: white; }
+        .topnav a.active { background-color: #27ae60; color: white; font-weight: 600; }
+        .topnav .icon { display: none; }
+
+        /* Page Header Banner */
+        .page-header {
+            /* Fallback color if image doesn't load */
+            background-color: #2c3e50; 
+            /* New Background Image */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            height: 35vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+        }
+
+        /* Services Grid Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #27ae60;
+            margin: 10px auto;
+        }
+
         .service-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 20px;
+            gap: 30px;
         }
 
         .service-box {
             background: #ffffff;
             border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform .3s ease, box-shadow .3s ease;
-            animation: fadeInUp 0.7s ease both;
+            overflow: hidden;
+            border-bottom: 4px solid #27ae60;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
         .service-box img {
             width: 100%;
-            height: 180px;
-            border-radius: 10px;
+            height: 200px;
             object-fit: cover;
-            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+            /* Gray background in case image fails to load */
+            background-color: #e0e0e0; 
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .service-box:hover img {
+            transform: scale(1.05);
         }
 
-        h2 {
+        .service-content {
+            padding: 25px;
             text-align: center;
-            margin-top: 20px;
+        }
+
+        .service-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive Nav */
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon { float: right; display: block; }
+            .topnav.responsive {position: relative; flex-direction: column;}
+            .topnav.responsive .icon { position: absolute; right: 0; top: 0; }
+            .topnav.responsive a { float: none; display: block; text-align: left; }
+            .page-header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Our Agric Services</h1>
-    <p>Delivering the best in modern agriculture</p>
-</header>
-
-<!-- NAVBAR -->
 <div class="topnav" id="myTopnav">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html" class="active">Services</a>
   <a href="products.html">Products</a>
   <a href="contact.html">Contact</a>
+  <a href="sitemap.html">Sitemap</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
-<section>
-    <h2>What We Offer</h2>
+<header class="page-header">
+    <div>
+        <h1>Our Services</h1>
+        <p>Delivering the best in modern agriculture</p>
+    </div>
+</header>
+
+<main class="container">
+    <h2 class="section-title">What We Offer</h2>
 
     <div class="service-container">
 
-        <!-- SERVICE 1 -->
         <div class="service-box">
-            <img src="https://i.pinimg.com/1200x/d2/31/3b/d2313bf47264e5aad16515bc9070ef32.jpg" alt="Farm Mechanization">
-            <h3>Farm Mechanization</h3>
-            <p>We provide modern machinery including tractors, ploughs, harvesters and advanced irrigation systems.</p>
+            <div style="overflow: hidden;">
+                <img src="https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Farm Mechanization">
+            </div>
+            <div class="service-content">
+                <h3>Farm Mechanization</h3>
+                <p>We provide modern machinery including tractors, ploughs, harvesters and advanced irrigation systems.</p>
+            </div>
         </div>
 
-        <!-- SERVICE 2 -->
         <div class="service-box">
-            <img src="https://i.pinimg.com/1200x/3f/6c/f0/3f6cf0b2a86a27532f00e670c8a7f1f9.jpg" alt="Seed Supply">
-            <h3>High-Quality Seed Supply</h3>
-            <p>Access improved hybrid seeds that guarantee faster germination and high yield for all crop types.</p>
+            <div style="overflow: hidden;">
+                <img src="https://images.pexels.com/photos/1486976/pexels-photo-1486976.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Seed Supply">
+            </div>
+            <div class="service-content">
+                <h3>High-Quality Seed Supply</h3>
+                <p>Access improved hybrid seeds that guarantee faster germination and high yield for all crop types.</p>
+            </div>
         </div>
 
-        <!-- SERVICE 3 -->
         <div class="service-box">
-            <img src="https://i.pinimg.com/736x/5f/f0/e0/5ff0e06bb3b7304a5b24edf93caab6f4.jpg" alt="Farmer Training">
-            <h3>Farmer Training</h3>
-            <p>We train individuals and cooperatives in modern farming best practices and smart agriculture technologies.</p>
+            <div style="overflow: hidden;">
+                <img src="https://i.pinimg.com/1200x/cc/72/6d/cc726d7c8331f375b9f55f1257a4a1a5.jpg?auto=compress&cs=tinysrgb&w=600" alt="Farmer Training">
+            </div>
+            <div class="service-content">
+                <h3>Farmer Training</h3>
+                <p>We train individuals and cooperatives in modern farming best practices and smart agriculture technologies.</p>
+            </div>
         </div>
 
-        <!-- SERVICE 4 -->
         <div class="service-box">
-            <img src="https://i.pinimg.com/1200x/76/32/7d/76327d3b6c8bee75a6f294816575b1b0.jpg" alt="Fertilizer Distribution">
-            <h3>Fertilizer Distribution</h3>
-            <p>We distribute organic and inorganic fertilizers suitable for various soil types and climates.</p>
+            <div style="overflow: hidden;">
+                <img src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fertilizer Distribution">
+            </div>
+            <div class="service-content">
+                <h3>Fertilizer Distribution</h3>
+                <p>We distribute organic and inorganic fertilizers suitable for various soil types and climates.</p>
+            </div>
         </div>
 
     </div>
 
-</section>
+</main>
 
 <footer>
-    <p>&copy; 2025 GreenFields Agric</p>
+    <p>&copy; 2025 GreenFields Agric. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
 </body>
 </html>

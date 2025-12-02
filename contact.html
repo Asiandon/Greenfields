@@ -5,47 +5,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - GreenFields Agric</title>
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fdfa;
+        }
+
+        /* Navigation */
+        .topnav {
+            background-color: #2c3e50;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .topnav a:hover { background-color: #27ae60; color: white; }
+        .topnav a.active { background-color: #27ae60; color: white; font-weight: 600; }
+        .topnav .icon { display: none; }
+
+        /* HEADER SECTION (Updated Background) */
+        .page-header {
+            /* Image of someone using a phone/technology in a field */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/4207906/pexels-photo-4207906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            height: 35vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* Image Side */
+        .contact-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Form Side */
+        .contact-form-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #27ae60;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Form Styling */
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            transition: border 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+
+        form button {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        form button:hover {
+            background-color: #219150;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon { float: right; display: block; }
+            .topnav.responsive {position: relative; flex-direction: column;}
+            .topnav.responsive .icon { position: absolute; right: 0; top: 0; }
+            .topnav.responsive a { float: none; display: block; text-align: left; }
+            .container { flex-direction: column; }
+            .contact-image img { height: 250px; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Contact Us</h1>
-</header>
-
-<nav class="topnav">
+<nav class="topnav" id="myTopnav">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
   <a href="products.html">Products</a>
   <a href="contact.html" class="active">Contact</a>
+  <a href="sitemap.html">Sitemap</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </nav>
 
+<header class="page-header">
+    <h1>Contact Us</h1>
+</header>
+
 <main>
-<section>
+    <div class="container">
+        
+        <div class="contact-image">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Contact Support">
+        </div>
 
-    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" width="450">
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
 
-    <h2>Send Us a Message</h2>
+            <form action="mailto:ralph@hovictech.live" method="post" enctype="text/plain">
+                <label>Name:</label>
+                <input type="text" name="name" placeholder="Your Name" required>
 
-    <form>
-        <label>Name:</label>
-        <input type="text" required>
+                <label>Email:</label>
+                <input type="email" name="email" placeholder="Your Email" required>
 
-        <label>Email:</label>
-        <input type="email" required>
+                <label>Message:</label>
+                <textarea name="message" rows="6" placeholder="How can we help you?" required></textarea>
 
-        <label>Message:</label>
-        <textarea rows="6" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
-        <button type="submit">Send</button>
-    </form>
-
-</section>
+    </div>
 </main>
 
 <footer>
-    <p>&copy; 2025 GreenFields Agric</p>
+    <p>&copy; 2025 GreenFields Agric. All Rights Reserved.</p>
 </footer>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
 
 </body>
 </html>
